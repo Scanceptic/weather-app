@@ -1,5 +1,6 @@
 export function renderData(processedJSON) {
 	try {
+		console.log("Rendering...");
 		// func to create quick divs
 		function createDiv(divName) {
 			const div = document.createElement("div");
@@ -13,13 +14,13 @@ export function renderData(processedJSON) {
 			output.removeChild(output.lastChild);
 		}
 		// create weather Element
-		const weather = createDiv(weather);
+		const weather = createDiv("weather");
 		weather.classList.add("card");
-		const updateTime = createDiv(updateTime);
+		const updateTime = createDiv("updateTime");
 		updateTime.textContent = processedJSON.updateTime;
-		const temperature = createDiv(temperature);
+		const temperature = createDiv("temperature");
 		temperature.textContent = processedJSON.temperature;
-		const wind = createDiv(wind);
+		const wind = createDiv("wind");
 		wind.textContent = processedJSON.wind;
 		// append weather components to weather div
 		weather.appendChild(updateTime);

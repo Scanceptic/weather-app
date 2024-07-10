@@ -28,7 +28,10 @@ export async function getWeatherJSON(location) {
 		// concat to make full url
 		const url = baseUrl.concat(apiMethod, key, q);
 		// fetch weather JSON from API
-		const response = await fetch(url);
+		console.log("Getting weatherJSON...");
+		const response = await fetch(url, {
+			mode: "cors",
+		});
 		// if failed throw error
 		if (!response.ok) {
 			throw new Error(`Response status: ${response.status}`);
@@ -49,17 +52,16 @@ export async function getWeatherJSON(location) {
     Returns new object with only the required data
 */
 
-export function processWeatherJSON(weatherJSON) {
+export async function processWeatherJSON(location) {
 	try {
+		const weatherJSON = await getWeatherJSON(location);
 		// process JSON
+		console.log("Processing weatherJSON...");
 		const processedJSON = {
-			updateTime: weatherJSON.last_updated,
-			temperature: weatherJSON.temp_c,
-			feelslike: weatherJSON.feelslike_c,
-			weatherText: weatherJSON["condition:text"],
-			weatherIcon: weatherJSON["condition:icon"],
-			weatherCode: weatherJSON["condition:code"],
-			wind: weatherJSON.wind_mph,
+			updateTime: weatherJSON.current.last_updated,
+			temperature: weatherJSON.current.temp_c,
+			feelslike: weatherJSON.current.feelslike_c,
+			wind: weatherJSON.current.wind_mph,
 		};
 		// return processed data
 		console.log(processedJSON);
