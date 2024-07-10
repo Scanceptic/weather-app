@@ -1,0 +1,15 @@
+:root {
+	--bg-color-primary: #ffffff;
+	--bg-color-secondary: #ffffff;
+	--bg-color-highlight: #ffffff;
+	--text-color-primary: #000000;
+	--text-color-secondary: #000000;
+	--text-color-highlight: #000000;
+	--border-color: #000000;
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
