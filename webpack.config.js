@@ -6,7 +6,12 @@ module.exports = {
 	entry: "./src/index.js",
 	devtool: "source-map",
 	devServer: {
-		watchFiles: ["./src/index.js", "./src/index.html", "./src/style.css"],
+		watchFiles: [
+			"./src/index.js",
+			"./src/index.html",
+			"./src/style.css",
+			"./src/*.js",
+		],
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
