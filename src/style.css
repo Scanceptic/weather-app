@@ -50,3 +50,38 @@ body {
 	width: 150px;
 	height: 40px;
 }
+
+.weather {
+	border: 1px solid var(--text-color-secondary);
+	width: 600px;
+	height: 200px;
+	background-color: var(--bg-color-secondary);
+	color: var(--text-color-secondary);
+	font-weight: 700;
+	font-size: 1.15rem;
+	padding: 15px;
+	margin: 20px;
+	display: grid;
+	grid-template-rows: 1fr 1fr;
+	grid-template-columns: 1fr 1fr;
+}
+
+.temperature {
+	grid-column: 1 / 2;
+	grid-row: 1 / 2;
+}
+
+.location {
+	grid-column: 1 / 2;
+	grid-row: 2 / 3;
+}
+
+.wind {
+	grid-column: 2 / 3;
+	grid-row: 1 / 2;
+}
+
+.updateTime {
+	grid-column: 2 / 3;
+	grid-row: 2 / 3;
+}

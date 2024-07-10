@@ -62,6 +62,7 @@ export async function processWeatherJSON(location) {
 			temperature: weatherJSON.current.temp_c,
 			feelslike: weatherJSON.current.feelslike_c,
 			wind: weatherJSON.current.wind_mph,
+			location: weatherJSON.location.name,
 		};
 		// return processed data
 		console.log(processedJSON);
