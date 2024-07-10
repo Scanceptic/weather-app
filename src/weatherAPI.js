@@ -42,3 +42,29 @@ export async function getWeatherJSON(location) {
 		console.log(error);
 	}
 }
+
+/*
+    Synchronous
+    Takes in weather JSON object
+    Returns new object with only the required data
+*/
+
+export function processWeatherJSON(weatherJSON) {
+	try {
+		// process JSON
+		const processedJSON = {
+			updateTime: weatherJSON.last_updated,
+			temperature: weatherJSON.temp_c,
+			feelslike: weatherJSON.feelslike_c,
+			weatherText: weatherJSON["condition:text"],
+			weatherIcon: weatherJSON["condition:icon"],
+			weatherCode: weatherJSON["condition:code"],
+			wind: weatherJSON.wind_mph,
+		};
+		// return processed data
+		console.log(processedJSON);
+		return processedJSON;
+	} catch (error) {
+		console.log(error);
+	}
+}
